@@ -1,0 +1,33 @@
+$cursorSize: 10px !default;
+
+body,
+body a {
+  cursor: none;
+}
+
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  background-color: $text-color;
+
+  width: $cursorSize;
+  height: $cursorSize;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 11000;
+}
+
+.cursor--hover {
+    pointer-events: none;
+    border: 1px solid $text-color;
+    position: fixed;
+    width: 0;
+    height: 0;
+    left: 0;
+    top: 0;
+     transform: translate(-50%, -50%);
+    border-radius: 4px;
+    z-index: 11000;
+}

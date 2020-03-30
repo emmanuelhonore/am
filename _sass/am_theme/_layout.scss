@@ -1,0 +1,168 @@
+/**
+ * body
+ */
+body {
+  padding-top: 107px;
+}
+
+/**
+ * Site header
+ */
+
+.banner {
+  min-height: $spacing-unit * 1.865;
+
+  // Positioning context for the mobile navigation icon
+  position: relative;
+
+  padding: $spacing-unit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.banner__title {
+  line-height: $base-line-height * $base-font-size * 2.25;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: calc(2.5vw + 12px);
+}
+
+.banner__logo {
+  height: calc(4vw + 12px);
+}
+
+
+/**
+ * Site header
+ */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+}
+
+/**
+ * Site footer
+ */
+.footer {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer li {
+padding: 4px 6px;
+}
+
+.footer__content {
+  margin-bottom: $spacing-unit * 3;
+}
+.footer__item {
+  border-top: 1px solid currentColor;
+  padding-top: $spacing-unit * 2;
+  margin: $spacing-unit $spacing-unit $spacing-unit * 2;
+  font-size: $small-font-size;
+}
+
+@media screen and (min-width: $on-tablet) {
+  .footer__content {
+    display: flex;
+  }
+  .footer__item {
+    width: calc(100% / 3);
+  }
+}
+
+
+/**
+ * Page content
+ */
+.page-content {
+  max-width: 1024px;
+  margin: 0 * 8 auto;
+  padding: $spacing-unit;
+}
+
+@media screen and (min-width: $on-tablet) {
+  .page-content {
+    margin: $spacing-unit * 8 auto 0;
+  }
+}
+
+/**
+ * Home
+ **/
+// .home {
+//   display: grid;
+//   grid-template-columns: repeat(2, 1fr);
+//   grid-gap: $spacing-unit;
+//
+//   margin-top: $spacing-unit * 8;
+// }
+//
+//   .home__text {
+//     margin-top: $spacing-unit * -8;
+//   }
+//   .home__figure {}
+//   .home__figure:nth-child(odd) {
+//     margin-top: $spacing-unit * -8;
+//   }
+//
+.home {
+  margin-top: $spacing-unit * 8;
+  // margin-bottom: $spacing-unit * 8;
+}
+
+.home__text,
+.home__figure {
+  margin-bottom: $spacing-unit * 2;
+}
+
+@media screen and (min-width: $on-tablet) {
+  .home {
+    margin-bottom: 0;
+    column-count: 2;
+    column-gap: $spacing-unit * 2;
+    column-fill: auto;
+  }
+  .home__text {
+    margin-top: $spacing-unit * -8;
+  }
+}
+
+
+/**
+ * Contact
+ */
+
+.contact {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.contact__option {
+  display: inline-block;
+  margin-right: $spacing-unit;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.contact__link {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  &:hover {
+    text-decoration: none;
+  }
+}

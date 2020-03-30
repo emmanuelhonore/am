@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body>
+
+    {%- include header.html -%}
+
+    <main class="page-content" aria-label="Content">
+        {{ content }}
+    </main>
+
+    {%- include footer.html -%}
+
+    <div class="cursor"></div>
+    <div class="cursor--hover"></div>
+
+    {%- include foot.html -%}
+
+  </body>
+
+</html>

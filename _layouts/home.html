@@ -1,0 +1,39 @@
+---
+layout: default
+---
+{% assign new_content = content | strip_newlines %}
+{% if new_content == ""  %}
+  {% assign notext = true %}
+{% else %}
+  {% assign notext = false %}
+{% endif %}
+
+<div class="home{% if notext == true %} home--no-text {% endif %}">
+
+    <div class="home__text">
+      <ul class="contact">
+        <li class="contact__option">
+          <a href="#" class="contact__link">
+            Insta
+          </a>
+        </li>
+        <li class="contact__option">
+          <a href="#" class="contact__link">
+            Mail
+          </a>
+        </li>
+      </ul>
+      {% if notext == false %}
+        {{ content }}
+      {% endif %}
+    </div>
+
+  {% assign image_files = site.static_files | where: "image", true %}
+  {% for myimage in image_files %}
+    <figure class="home__figure">
+      <img src="{{ myimage.path }}">
+      <figcaption>{{myimage.basename}}</figcaption>
+    </figure>
+  {% endfor %}
+
+</div>

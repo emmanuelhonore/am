@@ -1,0 +1,169 @@
+@charset "utf-8";
+
+// Define defaults for each variable.
+
+$base-font-family: "Space Grotesk", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$base-font-size:   1.5rem !default;
+$base-font-weight: 400 !default;
+$title-font-weight: bold !default;
+$small-font-size:  0.875rem !default;
+$base-line-height: 1.4 !default;
+
+$font-unit: "rem";
+$line-height: .75rem;
+$font-sizes: (
+  "p": 1,
+  "h6": 1,
+  "h5": 1.5,
+  "h4": 1.5,
+  "h3": 2.25,
+  "h2": 3.375,
+  "h1": 5.063,
+  ".huge": 7.594,
+  ".small": 0.667
+);
+
+$base-font-size: 18px;
+$min-font-size: 14px;
+$max-font-size: 24px;
+
+$spacing-unit:     1rem !default;
+
+$text-color:       #222120 !default;
+$background-color: #f2f2f2 !default;
+$brand-color:      #0abcd6 !default;
+
+$grey-color:       #828282 !default;
+$grey-color-light: lighten($grey-color, 40%) !default;
+$grey-color-dark:  darken($grey-color, 25%) !default;
+
+$themes: (
+  "blue": #0abcd6,
+  "green": #4cda64,
+  "purple": #864bff,
+  "yellow": #fbfe57,
+  "tangerine": #e57066,
+  "pink": #f03466,
+  "brick": #c14634,
+  "darkblue": #143249
+);
+
+// Width of the content area
+$content-width:    1024px !default;
+
+$on-tablet:          768px !default;
+$on-laptop:        1024px !default;
+
+$breakpoints: (
+  xs:   320px,
+  s:    425px,
+  md:   768px,
+  l:    1024px,
+  xl:   1240px,
+  xxl:  1440px,
+  xxxl: 2560px
+);
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//   .wrapper {
+//     padding-right: $spacing-unit / 2;
+//     padding-left: $spacing-unit / 2;
+//   }
+// }
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin relative-font-size($ratio) {
+  font-size: $base-font-size * $ratio;
+}
+
+@mixin text-contrast($n) {
+  $color-brightness: round((red($n)*299)+(green($n)*587)+(blue($n)*114)/1000);
+  $light-color: round((red(#ffffff)*299)+(green(#ffffff)*587)+(blue(#ffffff)*114)/1000);
+  @if abs($color-brightness) < ($light-color/2){
+    color: #f2f2f2;
+  } @else {
+    color: #222120;
+  }
+}
+
+/*
+ * Typography
+ */
+ /*
+  * strip unit utility
+  */
+ @function strip-unit($number) {
+   @if type-of($number) == 'number' and not unitless($number) {
+     @return $number / ($number * 0 + 1);
+   }
+
+   @return $number;
+ }
+
+ /*
+  * create fluid type expression for html element
+  */
+ @mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+ 	& {
+ 		@each $property in $properties {
+ 			#{$property}: $min-value;
+ 		}
+
+ 		@media screen and (min-width: $min-vw) {
+ 			@each $property in $properties {
+ 				#{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+ 			}
+ 		}
+
+ 		@media screen and (min-width: $max-vw) {
+ 			@each $property in $properties {
+ 				#{$property}: $max-value;
+ 			}
+ 		}
+ 	}
+ }
+
+/*
+ * calcultate line height for a specific size
+ */
+@function generate-line-height($size, $lh: $line-height, $line-height-unit: rem){
+  // if $size is not a number search in the $font-sizes map
+  @if (type-of($size) != number){
+    $size: map-get($font-sizes, $size);
+    // if does not exists, return base line-height and a warning;
+    @if (type-of($size) != number){
+      @warn "Error: invalid font size, the line-height has been set to it's orginal value of "+$lh;
+      @return $lh;
+    }
+  }
+
+  // get value in rem
+  $result: ceil($size / $lh) * $lh;
+
+  @if $line-height-unit == none {
+    // get value unitless
+    $result: $result / $size;
+  }
+  @else if $line-height-unit == rem {
+    $result: #{$result}rem;
+  }
+  @else {
+    $result: $result / $size;
+    @warn "Error: invalid $line-height-uni (must be none or rem), the line-height has been set to a unitless value of "+$result;
+  }
+
+  @return $result;
+}
+
+// Import partials.
+@import
+  "am_theme/cursor",
+  "am_theme/base",
+  "am_theme/layout",
+  "am_theme/syntax-highlighting"
+;

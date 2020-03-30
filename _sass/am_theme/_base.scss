@@ -1,0 +1,256 @@
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/**
+ * Basic styling
+ */
+
+ @font-face {
+  font-family: 'Space Grotesk';
+  src: url('webfont/SpaceGrotesk-Regular.woff2') format('woff2'),
+       url('webfont/SpaceGrotesk-Regular.woff') format('woff');
+  font-weight: 400;
+ }
+
+ @font-face {
+  font-family: 'Space Grotesk';
+  src: url('webfont/SpaceGrotesk-Bold.woff2') format('woff2'),
+       url('webfont/SpaceGrotesk-Bold.woff') format('woff');
+  font-weight: bold;
+ }
+
+body {
+  font-family: $base-font-family;
+  @include fluid-type(font-size, map-get($breakpoints, xs), map-get($breakpoints, xxl), $min-font-size, $max-font-size);
+  font-weight: $base-font-weight;
+  line-height: $base-line-height;
+  color: $text-color;
+  background-color: $background-color;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+     -moz-font-feature-settings: "kern" 1;
+       -o-font-feature-settings: "kern" 1;
+          font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl,
+%vertical-rhythm {
+  margin-bottom: $spacing-unit / 2;
+}
+
+
+
+/**
+ * `main` element
+ */
+main {
+  display: block; /* Default value of `display` of `main` element is 'inline' in IE 11. */
+}
+
+
+
+/**
+ * Images
+ */
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+
+
+/**
+ * Figures
+ */
+figure {
+  margin-bottom: 0;
+  display: inline-block;
+}
+figure > img {
+  display: block;
+}
+
+figcaption {
+  font-size: $small-font-size;
+  margin: $spacing-unit / 2 0;
+  max-width: 125px;
+}
+
+
+
+/**
+ * Lists
+ */
+ul, ol {
+  margin-left: $spacing-unit;
+}
+
+li {
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
+}
+
+
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $title-font-weight;
+}
+
+
+
+/**
+ * Links
+ */
+a {
+  color: $brand-color;
+  text-decoration: none;
+  position: relative;
+
+  // &:visited {
+  //   color: darken($brand-color, 15%);
+  // }
+
+  &:hover {
+    text-decoration: none;
+    // &:after {
+    //   width: 100%;
+    //   height: 100%;
+    //   border: 1px solid currentColor;
+    // }
+  }
+
+  .social-media-list &:hover {
+    text-decoration: none;
+
+    .username {
+      text-decoration: underline;
+    }
+  }
+}
+
+@each $name, $color in $themes {
+  .theme-#{$name} {
+    a {
+      color: $color;
+      // &:visited {
+      //   color: darken($color, 15%);
+      // }
+    }
+    .cursor {
+      background-color: $color;
+    }
+    .cursor--hover {
+      border-color: $color;
+    }
+
+    ::selection {
+      background-color: $color;
+      @include text-contrast($color);
+    }
+    ::-moz-selection {
+      background-color: $color;
+      @include text-contrast($color);
+    }
+  }
+}
+
+/**
+ * Blockquotes
+ */
+blockquote {
+  color: $grey-color;
+  border-left: 4px solid $grey-color-light;
+  padding-left: $spacing-unit / 2;
+  @include relative-font-size(1.125);
+  letter-spacing: -1px;
+  font-style: italic;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+  @include relative-font-size(0.9375);
+  border: 1px solid $grey-color-light;
+  border-radius: 3px;
+  background-color: #eef;
+}
+
+code {
+  padding: 1px 5px;
+}
+
+pre {
+  padding: 8px 12px;
+  overflow-x: auto;
+
+  > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+
+
+/**
+ * Wrapper
+ */
+
+
+/**
+ * Clearfix
+ */
+
+
+
+/**
+ * Icons
+ */
+
+.svg-icon {
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    fill: currentColor;
+    padding-right: 5px;
+    vertical-align: text-top;
+}
+
+
+
+/**
+ * Tables
+ */
