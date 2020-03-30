@@ -31,6 +31,9 @@ let hoverLeave = gsap.to(cursorHover,
 const initCursor = () => {
   // track position of the cursor
   document.addEventListener("mousemove", e => {
+    if(e.sourceCapabilities.firesTouchEvents) {
+      return false;
+    }
       clientX = e.clientX;
       clientY = e.clientY;
   });
@@ -64,6 +67,9 @@ const initHover = () => {
   // find the center of the link element and set stuckX and stuckY
   // these are needed to set the position of the noisy circle
   const handleMouseEnter = e => {
+    if(e.sourceCapabilities.firesTouchEvents) {
+      return false;
+    }
     const navItem = e.currentTarget;
     const navItemBox = navItem.getBoundingClientRect();
     stuckWidth = Math.round( navItemBox.width );
@@ -91,6 +97,9 @@ const initHover = () => {
   };
 
   const handleMouseLeave = e => {
+    if(e.sourceCapabilities.firesTouchEvents) {
+      return false;
+    }
     hoverLeave = gsap.to(cursorHover,
       {duration: .2, width: 0, height: 0, delay: .2, onComplete: () => { isStuck = false; }},
     );
