@@ -3,37 +3,74 @@ layout: default
 ---
 {% assign new_content = content | strip_newlines %}
 {% if new_content == ""  %}
-  {% assign notext = true %}
+{% assign notext = true %}
 {% else %}
-  {% assign notext = false %}
+{% assign notext = false %}
 {% endif %}
 
 <div class="home{% if notext == true %} home--no-text {% endif %}">
 
-    <div class="home__text">
-      <ul class="contact">
-        <li class="contact__option">
-          <a href="#" class="contact__link">
-            Insta
-          </a>
-        </li>
-        <li class="contact__option">
-          <a href="#" class="contact__link">
-            Mail
-          </a>
-        </li>
-      </ul>
-      {% if notext == false %}
-        {{ content }}
-      {% endif %}
+  <div class="home__menu">
+    <ul class="contact">
+      {%- if site.instagram_username -%}<li class="contact__option"><a class="contact__link" href="https://instagram.com/{{ site.instagram_username| cgi_escape | escape }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#instagram' | relative_url }}"></use></svg> <span class="username">{{ site.instagram_username| escape }}</span></a></li>{%- endif -%}
+      {%- if site.facebook_username -%}<li class="contact__option"><a class="contact__link" href="https://www.facebook.com/{{ site.facebook_username| cgi_escape | escape }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#facebook' | relative_url }}"></use></svg> <span class="username">{{ site.facebook_username| escape }}</span></a></li>{%- endif -%}
+      {%- if site.pinterest_username -%}<li class="contact__option"><a class="contact__link" href="https://www.pinterest.com/{{ site.pinterest_username| cgi_escape | escape }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#pinterest' | relative_url }}"></use></svg> <span class="username">{{ site.pinterest_username| escape }}</span></a></li>{%- endif -%}
+      {%- if site.flickr_username -%}<li class="contact__option"><a class="contact__link" href="https://www.flickr.com/photos/{{ site.flickr_username| cgi_escape | escape }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#flickr' | relative_url }}"></use></svg> <span class="username">{{ site.flickr_username| escape }}</span></a></li>{%- endif -%}
+      {%- if site.linkedin_username -%}<li class="contact__option"><a class="contact__link" href="https://www.linkedin.com/in/{{ site.linkedin_username| cgi_escape | escape }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#linkedin' | relative_url }}"></use></svg> <span class="username">{{ site.linkedin_username| escape }}</span></a></li>{%- endif -%}
+
+      {%- if site.email -%}
+        <li class="contact__option"><a class="u-email contact__link" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+      {%- endif -%}
+    </ul>
+
+    <div class="theme-toggle item-hover">
+      <svg version="1.1" class="svg-icon icon-sun" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    viewBox="-456 258.8 45.2 45.2" xml:space="preserve">
+  <path d="M-433.4,270.1c-6.2,0-11.3,5.1-11.3,11.3s5.1,11.3,11.3,11.3c6.2,0,11.3-5.1,11.3-11.3S-427.2,270.1-433.4,270.1z"/>
+  <path d="M-433.4,266.8c-1.2,0-2.2-1-2.2-2.2V261c0-1.2,1-2.2,2.2-2.2c1.2,0,2.2,1,2.2,2.2v3.5C-431.2,265.8-432.2,266.8-433.4,266.8
+    z"/>
+  <path d="M-433.4,296.1c-1.2,0-2.2,1-2.2,2.2v3.5c0,1.2,1,2.2,2.2,2.2c1.2,0,2.2-1,2.2-2.2v-3.5C-431.2,297-432.2,296.1-433.4,296.1z
+    "/>
+  <path d="M-423.1,271.1c-0.9-0.9-0.9-2.3,0-3.1l2.5-2.5c0.9-0.9,2.3-0.9,3.1,0c0.9,0.9,0.9,2.3,0,3.1l-2.5,2.5
+    C-420.8,271.9-422.2,271.9-423.1,271.1z"/>
+  <path d="M-443.8,291.8c-0.9-0.9-2.3-0.9-3.1,0l-2.5,2.5c-0.9,0.9-0.9,2.3,0,3.1s2.3,0.9,3.1,0l2.5-2.5
+    C-442.9,294-442.9,292.6-443.8,291.8z"/>
+  <path d="M-418.8,281.4c0-1.2,1-2.2,2.2-2.2h3.5c1.2,0,2.2,1,2.2,2.2c0,1.2-1,2.2-2.2,2.2h-3.5C-417.8,283.6-418.8,282.6-418.8,281.4
+    z"/>
+  <path d="M-448.1,281.4c0-1.2-1-2.2-2.2-2.2h-3.5c-1.2,0-2.2,1-2.2,2.2c0,1.2,1,2.2,2.2,2.2h3.5C-449,283.6-448.1,282.6-448.1,281.4z
+    "/>
+  <path d="M-423.1,291.8c0.9-0.9,2.3-0.9,3.1,0l2.5,2.5c0.9,0.9,0.9,2.3,0,3.1s-2.3,0.9-3.1,0l-2.5-2.5
+    C-423.9,294-423.9,292.6-423.1,291.8z"/>
+  <path d="M-443.8,271.1c0.9-0.9,0.9-2.3,0-3.1l-2.5-2.5c-0.9-0.9-2.3-0.9-3.1,0c-0.9,0.9-0.9,2.3,0,3.1l2.5,2.5
+    C-446,271.9-444.6,271.9-443.8,271.1z"/>
+  </svg>
+  <svg version="1.1" class="svg-icon icon-moon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+  viewBox="0 0 312.812 312.812" xml:space="preserve">
+
+  <path d="M305.2,178.159c-3.2-0.8-6.4,0-9.2,2c-10.4,8.8-22.4,16-35.6,20.8c-12.4,4.8-26,7.2-40.4,7.2c-32.4,0-62-13.2-83.2-34.4
+    c-21.2-21.2-34.4-50.8-34.4-83.2c0-13.6,2.4-26.8,6.4-38.8c4.4-12.8,10.8-24.4,19.2-34.4c3.6-4.4,2.8-10.8-1.6-14.4
+    c-2.8-2-6-2.8-9.2-2c-34,9.2-63.6,29.6-84.8,56.8c-20.4,26.8-32.4,60-32.4,96c0,43.6,17.6,83.2,46.4,112s68,46.4,112,46.4
+    c36.8,0,70.8-12.8,98-34c27.6-21.6,47.6-52.4,56-87.6C314,184.959,310.8,179.359,305.2,178.159z"/>
+
+  </svg>
+
     </div>
+  </div>
+
+  <div class="home__text">
+    {% if notext == false %}
+    {{ content }}
+    {% endif %}
+  </div>
 
   {% assign image_files = site.static_files | where: "image", true %}
+  <div class="home__figures">
   {% for myimage in image_files %}
-    <figure class="home__figure">
-      <img src="{{ myimage.path }}">
-      <figcaption>{{myimage.basename}}</figcaption>
-    </figure>
+  <figure class="home__figure">
+    <img src="{{ myimage.path }}">
+    <figcaption>{{myimage.basename}}</figcaption>
+  </figure>
   {% endfor %}
+</div>
 
 </div>

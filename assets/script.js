@@ -11,6 +11,25 @@ var theme = themes[Math.floor(Math.random() * themes.length)];
 
 document.getElementsByTagName("body")[0].classList.add("theme-"+theme);
 
+
+/*
+ * Dark mode button
+ */
+
+const btnDark = document.querySelector(".theme-toggle");
+const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+btnDark.addEventListener("click", function() {
+  // If the OS is set to dark mode...
+  if (prefersDarkScheme.matches) {
+    // ...then apply the .light-theme class to override those styles
+    document.body.classList.toggle("light-theme");
+    // Otherwise...
+  } else {
+    // ...apply the .dark-theme class to override the default light styles
+    document.body.classList.toggle("dark-theme");
+  }
+});
+
 /*
  * Change the cursor
  */
@@ -31,7 +50,7 @@ let hoverLeave = gsap.to(cursorHover,
 const initCursor = () => {
   // track position of the cursor
   document.addEventListener("mousemove", e => {
-    if(e.sourceCapabilities.firesTouchEvents) {
+    if(e.sourceCapabilities && e.sourceCapabilities.firesTouchEvents) {
       return false;
     }
       clientX = e.clientX;
@@ -67,7 +86,7 @@ const initHover = () => {
   // find the center of the link element and set stuckX and stuckY
   // these are needed to set the position of the noisy circle
   const handleMouseEnter = e => {
-    if(e.sourceCapabilities.firesTouchEvents) {
+    if(e.sourceCapabilities && e.sourceCapabilities.firesTouchEvents) {
       return false;
     }
     const navItem = e.currentTarget;
@@ -84,9 +103,6 @@ const initHover = () => {
     //   {duration: .2, x:stuckX, y:stuckY, width: cursorHoverSize, height: cursorHoverSize}
     // );
     //
-    if (hoverLeave.isActive()){
-      console.log('active');
-    }
     hoverLeave.kill();
     gsap.to(cursor,
       {duration: .2, scaleX: 2, scaleY: 2, opacity: .5},
@@ -97,7 +113,7 @@ const initHover = () => {
   };
 
   const handleMouseLeave = e => {
-    if(e.sourceCapabilities.firesTouchEvents) {
+    if(e.sourceCapabilities && e.sourceCapabilities.firesTouchEvents) {
       return false;
     }
     hoverLeave = gsap.to(cursorHover,
@@ -125,3 +141,13 @@ const initHover = () => {
 };
 
 initHover();
+
+
+
+/*
+ * Idle timer
+ */
+
+// const initIdle = () => {
+  
+// };

@@ -29,12 +29,16 @@ dl, dd, ol, ul, figure {
  }
 
 body {
+
+  --text-color: #222120;
+  --bg-color: #FBFCFC; //#FFFBFA;
+
   font-family: $base-font-family;
   @include fluid-type(font-size, map-get($breakpoints, xs), map-get($breakpoints, xxl), $min-font-size, $max-font-size);
   font-weight: $base-font-weight;
   line-height: $base-line-height;
-  color: $text-color;
-  background-color: $background-color;
+  color: var(--text-color);
+  background-color: var(--bg-color);
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
      -moz-font-feature-settings: "kern" 1;
@@ -44,6 +48,29 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+
+  transition: color .2s, background-color .15s;
+
+  &.dark-theme {
+  --text-color: #DADADA;
+  --bg-color: #222324;
+  }
+}
+
+/**
+ * set dark mode if available
+ */
+ @media (prefers-color-scheme: dark) {
+  /* defaults to dark theme */
+  body { 
+    --text-color: #DADADA;
+    --bg-color: #222324;
+  }
+  /* Override dark mode with light mode styles if the user decides to swap */
+  body.light-theme {
+    --text-color: #222120;
+    --bg-color: #FBFCFC; //#FFFBFA;
+  }
 }
 
 
@@ -240,16 +267,76 @@ pre {
  * Icons
  */
 
+.svg {
+  fill: currentColor;
+ }
 .svg-icon {
     width: 1rem;
     height: 1rem;
     display: inline-block;
-    fill: currentColor;
     padding-right: 5px;
     vertical-align: text-top;
+
+    @extend .svg;
 }
 
 
+.icon-moon {
+  width: .8rem;
+  height: .8rem;
+  top: .1rem; left: .1rem;
+}
+
+.theme-toggle {
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  transition: transform .4s;
+  &:hover {
+    transform: scale(1.5);
+  }
+  svg {
+    position: absolute;
+
+    transition: transform .4s;
+    transform-origin: .5rem .5rem;
+  }
+
+  .icon-moon {
+    transform: scale(1) rotate(0deg);
+  }
+  .icon-sun {
+    transform: scale(0) rotate(-90deg);
+  }
+
+  .dark-theme & {
+    .icon-moon {
+      transform: scale(0) rotate(-270deg);
+    }
+    .icon-sun {
+      transform: scale(1) rotate(0deg);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+
+    .icon-moon {
+      transform: scale(0) rotate(-270deg);
+    }
+    .icon-sun {
+      transform: scale(1) rotate(0deg);
+    }
+
+    .light-theme & {
+      .icon-moon {
+        transform: scale(1) rotate(0deg);
+      }
+      .icon-sun {
+        transform: scale(0) rotate(-90deg);
+      }
+    }
+  }
+}
 
 /**
  * Tables
