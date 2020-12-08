@@ -68,7 +68,11 @@ layout: default
   {% for myimage in image_files %}
   <figure class="home__figure">
     <img src="{{ myimage.path }}">
+    <!--
+
+    {# ADD REGEX "XX -- basname" #}
     <figcaption>{{myimage.basename}}</figcaption>
+    -->
   </figure>
   {% endfor %}
 </div>

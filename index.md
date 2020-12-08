@@ -4,8 +4,13 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: home
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquam molestie dapibus. Ut nec nisi quis leo tempus convallis in vitae odio. Praesent nec molestie velit, id pellentesque quam. Duis placerat diam id magna eleifend, at interdum purus scelerisque. Ut sed vehicula urna, in euismod sem. Duis sollicitudin arcu ac iaculis finibus. Nam pulvinar aliquet rhoncus.
+Somos una empresa de diseño industrial.
+Diseñamos y realizamos la ingeniería para resolver tus propuestas en cualquier material, para tus prototipos y producción final.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquam molestie dapibus. Ut nec nisi quis leo tempus convallis in vitae odio. Praesent nec molestie velit, id pellentesque quam. Duis placerat diam id magna eleifend, at interdum purus scelerisque. Ut sed vehicula urna, in euismod sem. Duis sollicitudin arcu ac iaculis finibus. Nam pulvinar aliquet rhoncus.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquam molestie dapibus. Ut nec nisi quis leo tempus convallis in vitae odio. Praesent nec molestie velit, id pellentesque quam. Duis placerat diam id magna eleifend, at interdum purus scelerisque. Ut sed vehicula urna, in euismod sem. Duis sollicitudin arcu ac iaculis finibus. Nam pulvinar aliquet rhoncus.
+Contamos con:
+Corte láser en metal para lámina y tubo, acero al carbón, inoxidable, aluminio y latón.  
+Soldadura con TIG, MIG y Electrodo, en acero al carbón, acero inoxidable y aluminio.
+Maquinados, dobleces y punzonados en metales.
+Acabados pintura electrostática.
+Carpintería en general, cuidando ensambles y acabados.
+Entregas e instalaciones.
