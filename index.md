@@ -1,8 +1,7 @@
 ---
 layout: home
 ---
-Somos una empresa de diseño industrial.
-Diseñamos y realizamos la ingeniería para resolver tus propuestas en cualquier material, para tus prototipos y producción final.
+
 
 Contamos con:
 Corte láser en metal para lámina y tubo, acero al carbón, inoxidable, aluminio y latón.  
