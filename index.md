@@ -1,6 +1,7 @@
 ---
 # un nuevo test
 layout: home
+---
 Maquila de corte laser en lamina, perfil y tubería y Empresa de diseño industrial.
 Diseñamos y realizamos la ingeniería para resolver tus propuestas en cualquier material, para tus prototipos y producción final.
 
