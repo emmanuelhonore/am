@@ -3,9 +3,9 @@
 layout: home
 ---
 Maquila de corte laser en lamina, perfil y tubería.  
-Hasta 13mm en acero al carbón
-Hasta 5mm en Aluminio y acelo inoxidable
-En tuberia y perfil tubular, de 25 a 250mm de diámetro
+Hasta 13mm en acero al carbón.
+Hasta 5mm en Aluminio y acelo inoxidable.
+En tuberia y perfil tubular, de 25 a 250mm de diámetro.
 
 Empresa de diseño industrial.
 Diseñamos y realizamos la ingeniería para resolver tus propuestas en cualquier material, para tus prototipos y producción final.
