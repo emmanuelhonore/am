@@ -23,7 +23,8 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://tallerdediseno.mx" # the base hostname & protocol for your site, e.g. http://example.com
 instagram_username: a.m.tallerdediseno
 facebook_username: a.m.tallerdediseno
-whatsapp: 5624556245
+whatsapp: 525624556245
+whatsapp_display: +52 56 2455 6245
 # github_username:  jekyll
 
 google_analytics: G-SQ6GQKTQS3
